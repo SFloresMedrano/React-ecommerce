@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from './Logo'
 import CartWidget from './CartWidget';
 
+
 const pages = ['Inicio', 'Productos', 'Contacto'];
 const settings = ['Mi Perfil', 'Mis compras', 'Cerrar Sesión'];
 
@@ -38,7 +39,8 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography 
@@ -182,7 +184,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Some image" src="" />
               </IconButton>
             </Tooltip>
             <Menu
