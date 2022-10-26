@@ -15,6 +15,7 @@ import Logo from './Logo'
 import CartWidget from './CartWidget';
 
 
+
 const pages = ['Inicio', 'Productos', 'Contacto'];
 const settings = ['Mi Perfil', 'Mis compras', 'Cerrar Sesión'];
 
@@ -37,7 +38,6 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
   return (
     
     <AppBar position="sticky">
@@ -111,6 +111,7 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize:'3rem'
             }}
           >
             
@@ -120,7 +121,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block', fontSize:20, justifyContent: 'center' }}
               >
                 {page}
               </Button>
@@ -139,6 +140,7 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize:'2rem',
             }}
           >
             <CartWidget/>

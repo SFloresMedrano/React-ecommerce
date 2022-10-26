@@ -10,7 +10,9 @@ function App() {
   return (
     <>
       <Navbar/>
-      <ItemListContainer greeting={'Simon'}/>
+      <ItemListContainer greeting={'Simon'} style={{ 
+        background: '#2E3B55',
+        fontSize: '2 rem' }}/>
       <Footer/>
     </>
   );
