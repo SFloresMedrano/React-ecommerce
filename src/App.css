@@ -7,3 +7,12 @@
   color: black;
   background-color: #3d5afe;
 }
+
+.counter{
+  width: fit-content;
+  background-color: #3d5afe;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
