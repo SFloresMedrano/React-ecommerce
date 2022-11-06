@@ -13,8 +13,6 @@ export const ItemCount= ({initial, stock, onAdd})=> {
     useEffect(() => {
       setCount(parseInt(initial)); 
     }, [initial])
-    
-
 
     return (
         <div className='counter'>
@@ -24,7 +22,6 @@ export const ItemCount= ({initial, stock, onAdd})=> {
             <div>
                 <button disabled={stock<=0} onClick={()=>onAdd(count)}>Agregar al Carrito</button>
             </div>
-
         </div>
     )
 };

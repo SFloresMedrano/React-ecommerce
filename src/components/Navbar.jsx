@@ -15,8 +15,12 @@ import Logo from './Logo'
 import CartWidget from './CartWidget';
 
 
+const pages=[
+  {label:"Inicio",link:"/"},
+  {label:"Checkout",link:"/checkout"},
+  {label:"Contacto",link:"/contacto"},
+];
 
-const pages = ['Inicio', 'Productos', 'Contacto'];
 const settings = ['Mi Perfil', 'Mis compras', 'Cerrar Sesión'];
 
 
@@ -91,8 +95,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -119,11 +123,11 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.label}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block', fontSize:20, justifyContent: 'center' }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
           </Box>
@@ -176,8 +180,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
