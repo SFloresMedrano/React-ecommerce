@@ -13,7 +13,7 @@ const Item=({info})=>{
   }
 
     return (
-        <Card sx={{ maxWidth: 345, minWidth: 200, }}>
+        <Card sx={{ maxWidth: 500, minWidth: 200, }}>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -29,16 +29,14 @@ const Item=({info})=>{
                 {info.id}
               </Typography>
             </CardContent>
-          </CardActionArea>
+          </CardActionArea> 
           <CardActions>
             <Button size="small" color="primary">
               Detalle
             </Button>
           </CardActions>
           <CardActions>
-            <Button size="small" color="primary">
               {<ItemCount key={info.id} initial={0} stock={info.stock} onAdd={onAdd}/>}
-            </Button>
           </CardActions>
 
         </Card>

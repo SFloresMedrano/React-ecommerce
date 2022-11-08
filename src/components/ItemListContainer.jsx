@@ -1,15 +1,17 @@
 import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer=()=>{
-  
+  const {idcategory} = useParams();
+   
   const products =[
-    {id:1001,name:'Perfil 1', price:200,stock:50},
-    {id:1002,name:'Perfil 2',price:400,stock:200},
-    {id:1003,name:'Perfil 3',price:205,stock:60},
-    {id:1004,name:'Perfil 4',price:605,stock:20},
-    {id:1005,name:'Perfil 5',price:800,stock:750},
+    {id:1001,name:'Perfil 1', price:200,stock:50,category:'A30'},
+    {id:1002,name:'Perfil 2',price:400,stock:200,category:'A40'},
+    {id:1003,name:'Perfil 3',price:205,stock:6,category:'A30'},
+    {id:1004,name:'Perfil 4',price:605,stock:20,category:'A30'},
+    {id:1005,name:'Perfil 5',price:800,stock:750,category:'A40'},
   ]
   
     const [data, setData]=useState([]);
@@ -20,8 +22,14 @@ export const ItemListContainer=()=>{
             resolve(products)
         }, 3000);
       })
-      getData.then(res=>setData(res))
-    });
+      getData.then(res=>{
+        if (idcategory){
+          setData(res.filter(item=>item.category === idcategory))
+        }else{
+          setData(res)
+        }
+      })
+    },[idcategory]);
 
     return(
         <Grid container justify="center">
