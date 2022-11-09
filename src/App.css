@@ -27,3 +27,9 @@
   height: auto;
   object-fit: cover;
 }
+
+.photo {
+  height: 200px;
+  width: 200px;
+
+}

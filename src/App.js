@@ -3,6 +3,7 @@ import './App.css';
 import Checkout from './components/Checkout';
 import Contacto from './components/Contacto';
 import Footer from './components/Footer';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 
@@ -15,7 +16,7 @@ function App() {
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/contacto" element={<Contacto/>}/>
           <Route path="/category/:idcategory" element={<ItemListContainer/>}/>
-          <Route path="/item/:iditem" element={<ItemListContainer/>}/>
+          <Route path="/item/:iditem" element={<ItemDetailContainer/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
