@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
+import {ThemeProvider, createTheme } from '@mui/material';
+import {red,blue} from '@mui/material/colors'
 
 const Item=({info})=>{
 
@@ -14,13 +16,21 @@ const Item=({info})=>{
   }
 
     return (
-        <Card sx={{ maxWidth: 500, minWidth: 200, }}>
+
+        <Card sx={{
+          backgroundColor:'#7fb2eb',
+          maxwidth:350,
+          minWidth:250,
+          fontSize: 16,
+          padding: "0 5",
+          justifyContent: 'center',
+          }}>
           <CardActionArea>
             <CardMedia 
               component="img"
-              height="350"
-              image=  {info.image}
-              alt=""
+              width="80%"
+              image={info.image}
+              alt={info.name}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -36,8 +46,9 @@ const Item=({info})=>{
           <CardActions>
               {<ItemCount key={info.id} initial={0} stock={info.stock} onAdd={onAdd}/>}
           </CardActions>
-
         </Card>
+
+
       );
     }
 
