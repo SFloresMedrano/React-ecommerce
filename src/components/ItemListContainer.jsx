@@ -32,7 +32,14 @@ export const ItemListContainer=()=>{
     },[idcategory]);
 
     return(
-        <Grid container justify="center">
+        <Grid 
+          container 
+          justifyContent="center"
+          wrap="wrap"
+          backgroundColor="#CCCCFF"
+          alignItems="center"
+          p={3}
+          spacing={3}>
           <ItemList data={data}/>
         </Grid>
 

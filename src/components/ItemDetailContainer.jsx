@@ -1,4 +1,4 @@
-import {React,useState, useEffect} from 'react'
+import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail';
 
@@ -27,9 +27,6 @@ export const ItemDetailContainer = (item) => {
   return (
     <>
         <ItemDetail info={data}/>
-        <div>
-          
-        </div>
     </>
 
   )

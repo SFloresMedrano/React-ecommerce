@@ -1,6 +1,6 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-export default function CartWidget(){
+export function CartWidget(){
     return(
         <div className="cartWidget">
         <ShoppingCartIcon/>
@@ -8,3 +8,5 @@ export default function CartWidget(){
     );  
 
 }
+
+export default CartWidget();

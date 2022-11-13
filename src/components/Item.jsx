@@ -19,32 +19,45 @@ const Item=({info})=>{
 
         <Card sx={{
           backgroundColor:'#7fb2eb',
-          maxwidth:350,
-          minWidth:250,
-          fontSize: 16,
-          padding: "0 5",
+          fontSize: 12,
           justifyContent: 'center',
+          alignItems: 'center',
+          textAling:'center',
+          textIndent: 5,
+          borderRadius: 10,
+          border: 1,
+          width: 0.6,
           }}>
           <CardActionArea>
             <CardMedia 
               component="img"
-              width="80%"
+              height="200"
               image={info.image}
               alt={info.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {info.name}
+              <Typography 
+                gutterBottom 
+                variant="h4" 
+                component="div">
+                  {info.name}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography 
+                  variant="body2" 
+                  color="text.primary">
                 {info.id}
+              </Typography>
+              <Typography 
+                  variant="body2" 
+                  color="text.primary">
+                {info.category}
               </Typography>
             </CardContent>
           </CardActionArea> 
 
-          <Link to={`/item/${info.id}`}>DETALLE</Link>
+          <Link to={`/item/${info.id}`}><p>DETALLE</p></Link>
           <CardActions>
-              {<ItemCount key={info.id} initial={0} stock={info.stock} onAdd={onAdd}/>}
+              {<ItemCount key={info.id} initial={1} stock={info.stock} onAdd={onAdd}/>}
           </CardActions>
         </Card>
 

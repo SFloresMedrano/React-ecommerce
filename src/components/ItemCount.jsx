@@ -4,7 +4,7 @@ export const ItemCount= ({initial, stock, onAdd})=> {
     const[count, setCount]= useState(parseInt(initial))
 
     const decrease =()=> {
-        setCount(count + 1);
+        setCount(count - 1);
     }
 
     const increase =()=>{
@@ -17,7 +17,7 @@ export const ItemCount= ({initial, stock, onAdd})=> {
     return (
         <div className='counter'>
             <button disabled={count<=1}onClick={decrease}>-</button>
-            <span>{count}</span>
+            <span className='span'>{count}</span>
             <button disabled={ count>=stock}onClick={increase}>+</button>
             <div>
                 <button disabled={stock<=0} onClick={()=>onAdd(count)}>Agregar al Carrito</button>

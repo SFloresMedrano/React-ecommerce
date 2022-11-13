@@ -12,6 +12,8 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import {CartWidget} from './CartWidget';
+
 
 const pages = [
   {label:'Inicio', link:'/'},
@@ -58,12 +60,14 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              height: 120,
+              alignItems: "center",
             }}
           >
             <Logo/>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', p:"2" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -129,8 +133,9 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Tooltip >
+              <IconButton onClick={""} sx={{ p: 0 }}>
+                <CartWidget/>
               </IconButton>
             </Tooltip>
             <Menu
