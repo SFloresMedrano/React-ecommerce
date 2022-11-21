@@ -7,18 +7,16 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import CartWidget  from './CartWidget';
 import Logo from './Logo';
-import {CartWidget} from './CartWidget';
 
 
 const pages = [
   {label:'Inicio', link:'/'},
   {label:'Contacto',link:'/contacto'},
-  {label:'Checkout', link:'/checkout'},
   {label:'A40', link:'/category/A40'},
   {label:'A30', link:'/category/A30'}];
 
@@ -131,13 +129,12 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justify:'flex-end'} }}>
+            <Link to='/cart'>
+              <CartWidget/>
+            </Link>
+          </Box>
           <Box sx={{ flexGrow: 0 }}>
-          <Tooltip >
-              <IconButton onClick={""} sx={{ p: 0 }}>
-                <CartWidget/>
-              </IconButton>
-            </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

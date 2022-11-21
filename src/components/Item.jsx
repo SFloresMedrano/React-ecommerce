@@ -1,22 +1,15 @@
-import * as React from 'react';
+import { CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import ItemCount from './ItemCount';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
-import {ThemeProvider, createTheme } from '@mui/material';
-import {red,blue} from '@mui/material/colors'
+
 
 const Item=({info})=>{
 
-  const onAdd =(quantity)=>{
-    console.log(`Compraste ${quantity} unidades`)
-  }
-
     return (
-
         <Card sx={{
           backgroundColor:'#7fb2eb',
           fontSize: 12,
@@ -54,11 +47,7 @@ const Item=({info})=>{
               </Typography>
             </CardContent>
           </CardActionArea> 
-
           <Link to={`/item/${info.id}`}><p>DETALLE</p></Link>
-          <CardActions>
-              {<ItemCount key={info.id} initial={1} stock={info.stock} onAdd={onAdd}/>}
-          </CardActions>
         </Card>
 
 
