@@ -1,7 +1,7 @@
-import React, {useState }from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../CartContext';
 import ItemCount from './ItemCount';
-import {useCartContext} from '../CartContext';
 
 export const ItemDetail = ({info}) => {
   const [goToCart,setGoToCart]=useState(false); 

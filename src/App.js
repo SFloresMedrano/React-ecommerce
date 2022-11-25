@@ -1,13 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Checkout from './components/Checkout';
+import CartProvider from './CartContext';
+import Cart from './components/Cart';
 import Contacto from './components/Contacto';
 import Footer from './components/Footer';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
-import CartProvider from './CartContext';
-import Cart from './components/Cart';
 
 function App() {
  

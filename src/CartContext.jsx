@@ -28,7 +28,6 @@ const CartProvider= ({children}) => {
     }else{
       setCart([]);
     }
-
   }
 
   const totalPrice =()=>{
