@@ -6,14 +6,13 @@ export const ItemCount= ({initial, stock, onAdd})=> {
     const decrease =()=> {
         setCount(count - 1);
     }
-
     const increase =()=>{
         setCount(count +1)
     }
     useEffect(() => {
       setCount(parseInt(initial)); 
     }, [initial])
-
+    if (stock<=0) return 'Lo sentimos, el elemento esta fuera de stock';
     return (
         <div className='counter'>
             <button disabled={count<=1}onClick={decrease}>-</button>

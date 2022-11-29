@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-import { getFirestore, collection,getDocs,query,where } from "firebase/firestore";
 
 export const ItemListContainer=()=>{
   const {idcategory} = useParams();
@@ -32,7 +32,6 @@ export const ItemListContainer=()=>{
           spacing={3}>
           <ItemList data={data}/>
         </Grid>
-
     )
 }
 
