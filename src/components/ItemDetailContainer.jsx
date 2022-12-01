@@ -13,7 +13,7 @@ export const ItemDetailContainer = (item) => {
     const queryDoc= doc(querydb,'productos',iditem) 
     getDoc(queryDoc)
     .then((item)=>{
-      const found = cart.find((item)=>item.id == iditem);
+      const found = cart.find((item)=>item.id === Number(iditem));
       const quantity= found ? found.quantity : 0;
       setData({id:item.id, ...item.data(), stock: item.data().stock - quantity});
     })
