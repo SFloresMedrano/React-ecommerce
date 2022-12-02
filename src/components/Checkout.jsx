@@ -1,17 +1,21 @@
-import { addDoc, collection, getFirestore, increment, updateDoc,doc } from 'firebase/firestore';
-import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import { addDoc, collection, doc, getFirestore, increment, updateDoc } from 'firebase/firestore';
+import * as React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../CartContext';
 import ItemCart from './ItemCart';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
-import {green} from '@mui/material/colors';
+import { green } from '@mui/material/colors';
 
 const Checkout = () => {
-   const {cart, totalPrice}= useCartContext();
+   const {cart, totalPrice,clearCart}= useCartContext();
    const [name,setName]=useState("");
    const [tel,setTel]=useState("");
    const [email,setEmail]=useState("");
@@ -32,20 +36,33 @@ const Checkout = () => {
     p: 4,
     borderRadius: 2,
   };
+  const order={
+      buyer: {name,tel,email},
+      pedido: JSON.stringify(cart),
+      items: cart.map(product=> ({id:product.id, name:product.name,price:product.price,quantity:product.quantity})),
+      total: totalPrice(),
+    }
+    const Transition = React.forwardRef(function Transition(props, ref) {
+      return <Slide direction="up" ref={ref} {...props} />;
+    });
 
-
-
-
-    const order={
-            buyer: {name,tel,email},
-            pedido: JSON.stringify(cart),
-            items: cart.map(product=> ({id:product.id, name:product.name,price:product.price,quantity:product.quantity})),
-            total: totalPrice(),
+    function validateEmail(email) {
+      let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
     }
 
     const handleClick =()=>{
+        setOpen(true)
         const db=getFirestore();
         const ordersCollection=collection (db, 'orders');
+        if(!name || !email|| !tel){
+          return
+        }
+        if (validateEmail(email)===false){
+          return {
+
+          }
+        }
         addDoc(ordersCollection,order)
         .then(({id})=>{
           cart.forEach((item) => {
@@ -53,7 +70,6 @@ const Checkout = () => {
             updateDoc(document,{stock:increment(-item.quantity)});
           });
         setOrderId(id);
-        setOpen(true);
         })
     }
 
@@ -73,28 +89,28 @@ const Checkout = () => {
              <input type="text" placeholder='Nombre' id="name" value={name} onChange={(e)=>setName(e.target.value)}/>
              <input type="text" placeholder='Telefono' id="tel" value={tel} onChange={(e)=>setTel(e.target.value)}/>
              <input type="text" placeholder='Email' id="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-             <Button onClick={handleClick}>Finalizar Compra</Button>
+             <Button variant="outlined" onClick={handleClick}>
+                    Finalizar Compra
+            </Button>
              <div>
-                <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                      <DoneOutlineIcon sx={{ color: green['A400'] }}/>
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2, mb:2 }}>
-                      {name}, tu compra fue exitosa!.
-                      Un correo será enviado a {email} para confirmar tu compra.
-                      Tu codigo de seguimiento es: {orderId}
-                    </Typography>
-                    <Button onClick={handleClose}>
-                      Muchas Gracias por tu Compra!
-                    </Button>
-                  </Box>
-                </Modal>
+                  <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                  >
+                    <DialogTitle><DoneOutlineIcon sx={{color: 'A400'}}></DoneOutlineIcon></DialogTitle>
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-slide-description">
+                        Gracias {name.toUpperCase()} por tu compra. Tu codigo de seguimiento es {orderId}.
+                         Te pediremos confirmación al siguiente correo:{email}
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={()=>clearCart()}>Gracias por tu compra</Button>
+                    </DialogActions>
+                  </Dialog>
               </div>
             </>
           )
