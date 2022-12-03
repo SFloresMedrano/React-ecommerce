@@ -1,70 +1,45 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Curso Coder React E-commerce
 
-## Available Scripts
+Este proyecto se desarrollo para el curso de React dictado en CoderHouse en la camada 44970
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Authors
 
-### `npm test`
+-@SFloresMedrano
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Se hizo el deploy de este proyecto usando como base Firebase
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Documentacion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Se utilizo como librerias material UI, para las tarjetas, dialogs y NavBar
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Uso
 
-## Learn More
+La pagina recrea un ecommerce de perfileria de aluminio. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+En el home se renderizan las tarjetas para cada perfil en la base de datos. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Se puede navegar entre las distintas categorias mediante los items en la barra de navegacion. 
 
-### Code Splitting
+Para agregar items al carro se debe acceder a cada detalle de cada item, para luego hacer la adición de cada elemento en la cantidad requerida. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Si el stock es suficiente, el boton demostrarà que se puede agregar al carro. Si no, mostrara que no es posible agregar elementos. 
 
-### Analyzing the Bundle Size
+Se puede acceder al carro tocando el logo del carrito, para ver el contenido del mismo. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Una vez finalizada la compra, clickeando el boton de finalizar compra se realiza el cierre de la compra mostrando el resumen, en la secciòn checkout. 
 
-### Making a Progressive Web App
+En la seccion checkout, se validan los inputs de nombre, telefono y correo. Si estos estan vacios o con contenido incorrecto, no se producirá el pedido. Si esto es correcto, se produce el pedido y se le muestra al usuario el numero de seguimiento. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+El footer de la pagina permite navegar entre las diferentes secciones. 
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
