@@ -19,7 +19,9 @@ const Item=({info})=>{
           textIndent: 5,
           borderRadius: 10,
           border: 1,
-          width: 0.6,
+          minWidth: 200,
+          maxWidth: 250,
+
           }}>
           <CardActionArea>
             <CardMedia 
@@ -38,12 +40,12 @@ const Item=({info})=>{
               <Typography 
                   variant="body2" 
                   color="text.primary">
-                {info.id}
+                Codigo de Producto: {info.code}
               </Typography>
               <Typography 
                   variant="body2" 
                   color="text.primary">
-                {info.category}
+                Linea: {info.category}
               </Typography>
             </CardContent>
           </CardActionArea> 

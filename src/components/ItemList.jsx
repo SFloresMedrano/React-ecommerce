@@ -6,12 +6,13 @@ const ItemList = ({data=[]})=>{
     return(
         data && data.map(product=>(
             <Grid 
+                className='itemList'
                 item 
-                sm={4}
+                xs={3}
                 key={product.id}
                 style={{textAlign: "center"}}
                 justifyContent="center"
-                width={20}>
+                marginLeft={'24px'}>
                 <Item key={product.id} info={product}/>
             </Grid>
         ))

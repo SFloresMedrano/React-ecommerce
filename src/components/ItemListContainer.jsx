@@ -23,13 +23,16 @@ export const ItemListContainer=()=>{
 
     return(
         <Grid 
+          display='flex'
           container 
           justifyContent="center"
           wrap="wrap"
           backgroundColor="#CCCCFF"
           alignItems="center"
-          p={3}
-          spacing={3}>
+          spacing={3}
+          margin-left='auto'
+          margin-right='auto'>
+          
           <ItemList data={data}/>
         </Grid>
     )
