@@ -10,7 +10,7 @@ const ItemCart = ({product,show}) => {
       <div className='checkoutImage'>
         <img src={product.image} alt={product.name} />
       </div>
-      <div>
+      <div className='cartDetails'>
             <p>Item: {product.name}</p>
             <p>Código de producto: {product.code}</p>
             <p>Cantidad: {product.quantity}</p>

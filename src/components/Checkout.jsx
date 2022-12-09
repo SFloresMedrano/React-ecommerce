@@ -1,3 +1,4 @@
+import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -11,8 +12,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../CartContext';
 import ItemCart from './ItemCart';
-import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
-import { green } from '@mui/material/colors';
 
 const Checkout = () => {
    const {cart, totalPrice,clearCart}= useCartContext();
@@ -21,21 +20,9 @@ const Checkout = () => {
    const [email,setEmail]=useState("");
    const show=false;
    const [open, setOpen] = React.useState(false);
-   const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
    const [orderId,setOrderId]=useState("");
-   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    borderRadius: 2,
-  };
+
   const order={
       buyer: {name,tel,email},
       pedido: JSON.stringify(cart),
@@ -82,7 +69,8 @@ const Checkout = () => {
     );
     }else{
         return (
-            <> {
+            <div className='checkoutContainer'>
+            {
                 cart.map(product=> <ItemCart key={product.id} product={product} show={show}/>)
             }
              <h2>Precio Total: ${totalPrice()}</h2>
@@ -112,7 +100,7 @@ const Checkout = () => {
                     </DialogActions>
                   </Dialog>
               </div>
-            </>
+            </div>
           )
     }
    }

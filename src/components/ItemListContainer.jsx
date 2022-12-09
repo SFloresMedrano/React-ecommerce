@@ -22,6 +22,7 @@ export const ItemListContainer=()=>{
     },[idcategory]);
 
     return(
+      <div className="gridContainer">
         <Grid 
           display='flex'
           container 
@@ -31,10 +32,12 @@ export const ItemListContainer=()=>{
           alignItems="center"
           spacing={3}
           margin-left='auto'
-          margin-right='auto'>
+          margin-right='auto'
+          minHeight={'76.7vh'}>
           
           <ItemList data={data}/>
         </Grid>
+      </div>
     )
 }
 
