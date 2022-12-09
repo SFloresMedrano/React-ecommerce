@@ -21,7 +21,7 @@ export const ItemDetailContainer = (item) => {
 
   return (
     <>
-      <div style={{border:  '2px solid black', margin:'10px'}}>
+      <div>
         <ItemDetail info={data}/>
       </div>
     </>

@@ -103,7 +103,7 @@
   height: 80%;
 }
 
-.cartContainer{
+.cartContainer, .checkoutContainer{
   min-height: 74vh;
   background-color: lightgrey;
   display: flex;
@@ -136,6 +136,51 @@
 
 }
 
-.cartDetails {
+.cardDetail {
+  display: flex;
+  height: 67vh;
+  background-color: lightgrey;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 73vh;
+}
 
+.cardDetailContainer{
+  display: flex;
+  flex-direction: row;
+  height: 40vh;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightblue;
+  border: 2px solid black;
+  border-radius: 10px;
+
+}
+.cardDetailAttributes{
+  width: 30vh;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+
+.cardDetailImage{
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  margin: 10px;
+  
+}
+
+.cardDetail img{
+  height: 200px;
+  width: auto;
+  object-fit: contain;
 }

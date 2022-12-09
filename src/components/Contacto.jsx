@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import React, { useState } from 'react';
+import {blue,grey,red,green} from '@mui/material/colors'
 
 
 export default function Contacto() {
@@ -47,7 +48,7 @@ export default function Contacto() {
                 <input type="text" placeholder='Telefono' id="tel" value={tel} onChange={(e)=>setTel(e.target.value)}/>
                 <input type="text" placeholder='Email' id="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                 <TextareaAutosize/>
-                <Button variant="outlined" onClick={handleClick}>
+                <Button sx ={{backgroundColor: blue[500], color:grey[50] }} variant="outlined" onClick={handleClick}>
                         Enviar mensaje
                 </Button>
                 <div>

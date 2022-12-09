@@ -12,6 +12,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../CartContext';
 import ItemCart from './ItemCart';
+import {green,red, grey} from '@mui/material/colors'
+
 
 const Checkout = () => {
    const {cart, totalPrice,clearCart}= useCartContext();
@@ -33,23 +35,23 @@ const Checkout = () => {
       return <Slide direction="up" ref={ref} {...props} />;
     });
 
-    function validateEmail(email) {
-      let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    function validateEmail(email) { 
+      let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$""/;
       return re.test(email);
     }
 
     const handleClick =()=>{
-        setOpen(true)
+      setOpen(true);
+      if(!name || !email|| !tel){
+        return
+      }
+      if (validateEmail(email)===false){
+        return {
+        }
+      }
+        console.log(email,name,tel)
         const db=getFirestore();
         const ordersCollection=collection (db, 'orders');
-        if(!name || !email|| !tel){
-          return
-        }
-        if (validateEmail(email)===false){
-          return {
-
-          }
-        }
         addDoc(ordersCollection,order)
         .then(({id})=>{
           cart.forEach((item) => {
@@ -62,10 +64,12 @@ const Checkout = () => {
 
    if (cart.length === 0){
     return (
-        <>
-            <h3>Aun no hay productos en tu carrito!</h3>
-            <Link to='/'> Hace click acá para empezar a comprar</Link>
-        </>
+      <div className='cartContainer'>
+      <h3>No hay elementos en el carrito</h3>
+      <Button sx ={{backgroundColor: green[500], color:grey[50] }}>
+        <Link to='/'>Nuestros Productos</Link>
+      </Button>
+  </div>  
     );
     }else{
         return (
