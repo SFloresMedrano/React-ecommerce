@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import {green} from '@mui/material/colors'
+import {green} from '@mui/material/colors';
         
 export const ItemCount= ({initial, stock, onAdd})=> {
     const[count, setCount]= useState(parseInt(initial))
@@ -12,6 +12,7 @@ export const ItemCount= ({initial, stock, onAdd})=> {
     const increase =()=>{
         setCount(count +1)
     }
+
     useEffect(() => {
       setCount(parseInt(initial)); 
     }, [initial])
@@ -22,7 +23,12 @@ export const ItemCount= ({initial, stock, onAdd})=> {
             <span className='span'>{count}</span>
             <button disabled={ count>=stock}onClick={increase}>+</button>
             <Stack direction="row" spacing={2}>
-            <Button sx={{backgroundColor:green[500]}}onClick={()=>onAdd(count)} variant="contained" >Agregar al Carrito</Button>
+            <Button sx={{backgroundColor:green[500],
+                    mt:2,
+                    ':hover': {
+                        bgcolor: green[800], 
+                        color: 'white'}}}
+                onClick={()=>onAdd(count)} variant="contained" >Agregar al Carrito</Button>
             </Stack>
         </div>
     )

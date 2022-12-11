@@ -1,9 +1,9 @@
+import { Button } from '@mui/material';
+import { green, grey } from '@mui/material/colors';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../CartContext';
 import ItemCount from './ItemCount';
-import { Button } from '@mui/material';
-import {red,green,blue,grey} from '@mui/material/colors'
 
 export const ItemDetail = ({info}) => {
   const [goToCart,setGoToCart]=useState(false); 

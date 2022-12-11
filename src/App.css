@@ -184,3 +184,21 @@
   width: auto;
   object-fit: contain;
 }
+
+.itemCount{
+  display: flex;
+  background-color: green;
+  color: white;
+  border-radius: 30px;
+  border: 2px solid white;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  translate: 15px -15px;
+}
+
+.cartIcon{
+  position: relative;
+}

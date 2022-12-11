@@ -1,7 +1,9 @@
 import { CardActionArea } from '@mui/material';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { green, grey } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
@@ -21,7 +23,6 @@ const Item=({info})=>{
           border: 1,
           minWidth: 200,
           maxWidth: 250,
-
           }}>
           <CardActionArea>
             <CardMedia 
@@ -49,7 +50,16 @@ const Item=({info})=>{
               </Typography>
             </CardContent>
           </CardActionArea> 
-          <Link to={`/item/${info.id}`}><p>DETALLE</p></Link>
+          <Link to={`/item/${info.id}`}>
+            <Button sx={{color: grey[50],
+            backgroundColor: green[400],
+            mb:2,
+            ':hover':{
+              bgcolor: green[800], 
+              color: 'white'}}}
+               variant="contained"
+              > DETALLE </Button>
+            </Link>
         </Card>
 
 
